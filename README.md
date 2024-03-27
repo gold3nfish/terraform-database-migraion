@@ -37,6 +37,10 @@ After the setup, you can execute the migration process using the following steps
 - Review the generated log URL to access detailed logs during and after the migration process.
 - Customize the script according to your specific requirements, such as adjusting resource configurations or adding additional logic for migration tasks.
 
+## Explanation
+
+For a detailed explanation of the code and how to use it, refer to the following Medium article: [Terraforming Your Migration: A Beginner's Guide to Infrastructural Magic](https://medium.com/@gold3nfish/terraforming-your-migration-a-beginners-guide-to-infrastructural-magic-892f620369d7).
+
 ## Contributors
 
 - [Taweewat Phonksawai](https://github.com/gold3nfish)
