@@ -1,0 +1,58 @@
+[
+  {
+    "name": "migration",
+    "image": "your_ecr_image_url_here",
+    
+    "dnsSearchDomains": null,
+    "environmentFiles": null,
+    "mouthPoints": null,
+    
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "secretOptions": null,
+      "options": {
+        "awslogs-group": "migration",
+        "awslogs-region": "your_aws_region_here",
+        "awslogs-stream-prefix": "migration"
+      }
+    },
+    
+    "command": [
+      "rails", "db:migrate"
+    ],
+    
+    "environment": [
+      {"name": "RAILS_ENV", "value": "production"},
+      {"name": "DATABASE_URL", "value": "mysql2://..."},
+      {"name": "SECRET_KEY_BASE", "value": "your_secret_key_base_here"}
+    ],
+    
+    "requiresAttributes": [
+      {"name": "ecs.capability.execution-role-awslogs"},
+      {"name": "com.amazonaws.ecs.capability.ecr-auth"},
+      {"name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"},
+      ],
+    
+    "resourceRequirements": null,
+    "ulimits": null,
+    "workingDirectory": null,
+    "secrets": null,
+    
+    "essential": true,
+    "startTimeout": 60,
+    "stopTimeout": 30,
+    
+    "pidMode": "host",
+    "linuxParameters": null,
+    "status": "ACTIVE",
+    
+    "portMappings": [
+      {
+        "hostPort": your_host_port_here,
+        "protocol": "tcp",
+        "containerPort": your_container_port_here,
+        "appProtocol": "http"
+      }
+    ]
+  }
+]
